@@ -1,5 +1,8 @@
+/** @jsxImportSource @emotion/react */
 import React, { useState, useEffect } from 'react';
 import { fetchProperties } from '../utils/api';
+import { PropertyList } from '../components/PropertyList';
+import { Page } from '../components/Page';
 
 export default function Properties() {
   const [properties, setProperties] = useState([]);
@@ -23,5 +26,9 @@ export default function Properties() {
 
   if (error) return <div>An error occurred: {error}</div>;
 
-  return <div>This is where Property List goes</div>;
+  return (
+    <Page>
+      <PropertyList properties={properties} />
+    </Page>
+  );
 }
